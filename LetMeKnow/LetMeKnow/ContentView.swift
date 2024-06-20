@@ -17,15 +17,12 @@ struct ContentView: View {
         
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) { // showsIndicators : false => 스크롤바 안보이게
-                
+                // 달력 뷰
                 VStack(spacing: 20, content: {
-                    
-                    //Custom Picker View
                     CustomDatePicker(currentDate: currentDate, dateValue: $currentDate)
-                    
-                })//VStack
+                })
                 .padding(.vertical)
-            }//ScrollView
+            }
             .navigationTitle("알려주게")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear(perform: {
@@ -35,13 +32,7 @@ struct ContentView: View {
         
     }//body
     
-    
-    /* 날짜 체크 */
-    func isSameDay(date1: Date, date2: Date) -> Bool {
-        let calendar = Calendar.current
-        return calendar.isDate(date1, inSameDayAs: date2)
-    }
-    
+    /* notification 푸시 알림*/
     func setNotification() {
         let manager = NotificationManager()
         manager.addNotification(title: "hello")
