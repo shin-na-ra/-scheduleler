@@ -85,6 +85,8 @@
 		5409E6522C23D504001B8F7F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5409E6592C23D799001B8F7F /* Calendar */,
+				5409E6582C23D78F001B8F7F /* Splash */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,6 +97,20 @@
 				5409E6542C23D54A001B8F7F /* Task.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5409E6582C23D78F001B8F7F /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		5409E6592C23D799001B8F7F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
