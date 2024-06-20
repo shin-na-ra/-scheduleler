@@ -98,11 +98,6 @@ struct CustomDatePicker: View {
                     CardView(value: value)
                         .id(value.id)
                         .background(
-//                            Capsule()
-//                                .fill(Color("color2"))
-//                                .padding(.horizontal, 8)
-//                                .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
-                            
                             Circle()
                                 .fill(Color("color1"))
                                 .padding(.horizontal, 2)
@@ -116,7 +111,6 @@ struct CustomDatePicker: View {
                 Text("일정")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-//                    .padding(.vertical, 20)
                 
                 if !tasksForSelectedDate.isEmpty {
                     ForEach(tasksForSelectedDate) { task in
@@ -158,9 +152,9 @@ struct CustomDatePicker: View {
         .sheet(item: $selectedTask, onDismiss:  {
             fetchTasksForSelectedDate()
         }, content: { task in
-//            CalendarDetailView(task: task, currentDate: dateValue)
-//                .presentationDetents([.medium])
-//                .presentationDragIndicator(.visible)
+            CalendarDetailView(task: task, currentDate: dateValue)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
         })
         .safeAreaInset(edge: .bottom, content: {
             HStack(content: {
