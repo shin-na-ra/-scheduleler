@@ -11,6 +11,8 @@
 		5409E6462C23CD1B001B8F7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6452C23CD1B001B8F7F /* ContentView.swift */; };
 		5409E6482C23CD1C001B8F7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5409E6472C23CD1C001B8F7F /* Assets.xcassets */; };
 		5409E64B2C23CD1C001B8F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5409E64A2C23CD1C001B8F7F /* Preview Assets.xcassets */; };
+		5409E6552C23D54A001B8F7F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6542C23D54A001B8F7F /* Task.swift */; };
+		5409E6572C23D5D8001B8F7F /* CalendarDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6562C23D5D8001B8F7F /* CalendarDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		5409E6452C23CD1B001B8F7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5409E6472C23CD1C001B8F7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5409E64A2C23CD1C001B8F7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5409E6542C23D54A001B8F7F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5409E6562C23D5D8001B8F7F /* CalendarDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,9 @@
 		5409E6422C23CD1B001B8F7F /* LetMeKnow */ = {
 			isa = PBXGroup;
 			children = (
+				5409E6532C23D509001B8F7F /* Model */,
+				5409E6522C23D504001B8F7F /* View */,
+				5409E6512C23D500001B8F7F /* VM */,
 				5409E6432C23CD1B001B8F7F /* LetMeKnowApp.swift */,
 				5409E6452C23CD1B001B8F7F /* ContentView.swift */,
 				5409E6472C23CD1C001B8F7F /* Assets.xcassets */,
@@ -65,6 +72,29 @@
 				5409E64A2C23CD1C001B8F7F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5409E6512C23D500001B8F7F /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				5409E6562C23D5D8001B8F7F /* CalendarDB.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		5409E6522C23D504001B8F7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5409E6532C23D509001B8F7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5409E6542C23D54A001B8F7F /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5409E6462C23CD1B001B8F7F /* ContentView.swift in Sources */,
+				5409E6552C23D54A001B8F7F /* Task.swift in Sources */,
 				5409E6442C23CD1B001B8F7F /* LetMeKnowApp.swift in Sources */,
+				5409E6572C23D5D8001B8F7F /* CalendarDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
