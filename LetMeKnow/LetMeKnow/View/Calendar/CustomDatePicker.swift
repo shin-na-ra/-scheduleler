@@ -22,60 +22,37 @@ struct CustomDatePicker: View {
     @State var isAlert = false            // actionSheet 실행
     @State var isResultTrue = false
     @State var isResultFalse = false
-   
-    
+    let days: [String] = ["일","월","화","수","목","금","토"]
     
     var body: some View {
         
         //요일 리스트
-        let days: [String] = ["일","월","화","수","목","금","토"]
+        
         
         VStack(/*spacing: 10,*/ content: {
             
-            //년도, 월 나타내기
+            //년도, 월 나타내기 - HStack1
             HStack(spacing: 20 ,content: {
-//                VStack(alignment: .leading, spacing: 10 ,content: {
-//                
-//                    Text(extraDate()[0])
-//                        .font(.caption)
-//                        .fontWeight(.semibold)
-//                    
-//                    Text("\(extraDate()[1])월")
-//                        .font(.title.bold())
-//                })//VStack
-                
                 CalendarTitle(currentDate: $currentDate)
                 
                 Spacer(minLength: 0)
                 
                 //이전버튼 : month -1 처리
-                Button(action: {
-                    withAnimation{
-                        currentMonth -= 1
-                        updateCurrentMonth()
-                    }
-                }, label: {
-                    Image(systemName: "chevron.left")
-                        .font(.title2)
-                        .foregroundStyle(Color("myColor"))
-                })
+                calendarButton(direction: "left") {
+                    currentMonth -= 1
+                    updateCurrentMonth()
+                }
                 
                 //다음버튼 : month +1 처리
-                Button(action: {
-                    withAnimation{
-                        currentMonth += 1
-                        updateCurrentMonth()
-                    }
-                }, label: {
-                    Image(systemName: "chevron.right")
-                        .font(.title2)
-                        .foregroundStyle(Color("myColor"))
-                })
+                calendarButton(direction: "right") {
+                    currentMonth += 1
+                    updateCurrentMonth()
+                }
                 
-            })//HStack
+            })//HStack1
             .padding()
             
-            // 요일 나타내기
+            // 요일 나타내기 - HStack2
             HStack(spacing: 0 ,content: {
                 ForEach(days, id: \.self) {day in
                     Text(day)
@@ -83,7 +60,7 @@ struct CustomDatePicker: View {
                         .fontWeight(.semibold)
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 }
-            })//HStack
+            })//HStack2
             
             
             // 날짜 가져오기
@@ -106,42 +83,14 @@ struct CustomDatePicker: View {
                 Text("일정")
                     .font(.title2.bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
-                if !tasksForSelectedDate.isEmpty {
-                    ForEach(tasksForSelectedDate) { task in
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text(task.time, style: .time)
-                                Text(task.title)
-                                    .font(.title2.bold())
-                            }
-                            .padding(.vertical, 10)
-                            .padding(.horizontal)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(task.status == 0 ? Color.black : Color.gray)
-                            .background(
-                                Color("color1")
-                                    .opacity(0.1)
-                                    .cornerRadius(10)
-                            )
-                            .onTapGesture {
-                                selectedTask = task
-                                isPresented = true
-                            }
-                    }// ForEach
-                    
-                } else {
-                    Text("일정이 없습니다.")
-                }
             }
             .padding()
             
-        }) //제일 상위 VStack
-        //월 update 처리하기
+        })
         .onChange(of: currentMonth) {
             updateCurrentMonth()
         }
         .onAppear {
-            print("onAppear 실행")
             fetchTasksForSelectedDate()
         }
         .sheet(item: $selectedTask, onDismiss:  {
@@ -152,35 +101,14 @@ struct CustomDatePicker: View {
                 .presentationDragIndicator(.visible)
         })
         .safeAreaInset(edge: .bottom, content: {
-            HStack(content: {
-                Button(action: {
-                    isAlert = true
-                }, label: {
-                    Image(systemName: "plus")
-                        .foregroundStyle(.white)
-                        .fontWeight(.bold)
-                        .frame(width: 100)
-                        .padding(.vertical)
-                        .background(Color("myColor"), in: Circle())
-                })
-                .sheet(isPresented: $isAlert, onDismiss: {
-                    fetchTasksForSelectedDate()
-                }, content: {
-                    CalendarAddView()
-                        .presentationDetents([.medium])
-                        .presentationDragIndicator(.visible)
-                }) //sheet
-            })
-            .padding(.horizontal)
-            .padding(.top, 10)
-            .background(.ultraThinMaterial)
-        
-            
-        })//safeArea
+            plusBtn()
+        })
         
     }// body
     
     
+    
+    /* ------- View function ------- */
     /* MARK: CardView() */
     @ViewBuilder
     func CardView(value: DateValue) -> some View {
@@ -213,7 +141,6 @@ struct CustomDatePicker: View {
                 }
             }
         })
-//        .padding(.vertical, 9)
         .frame(height: 50, alignment: .top)
         .onTapGesture (perform: {
             currentDate = value.date
@@ -221,6 +148,52 @@ struct CustomDatePicker: View {
             fetchTasksForSelectedDate()
         })
     }
+    
+    
+    /* MARK: 이전, 이후 월 이동 버튼 표시 함수*/
+    func calendarButton(direction: String, action: @escaping() -> Void) -> some View {
+        let imageName = "chevron."+direction
+        return Button(action: {
+            withAnimation{
+                action()
+            }
+        }, label: {
+            Image(systemName: imageName)
+                .font(.title2)
+                .foregroundStyle(Color("myColor"))
+        })
+    }
+    
+    /* MARK: 일정 추가버튼 View 함수 */
+    func plusBtn() -> some View {
+        HStack(content: {
+            Button(action: {
+                isAlert = true
+            }, label: {
+                Image(systemName: "plus")
+                    .foregroundStyle(.white)
+                    .fontWeight(.bold)
+                    .frame(width: 100)
+                    .padding(.vertical)
+                    .background(Color("myColor"), in: Circle())
+            })
+            .sheet(isPresented: $isAlert, onDismiss: {
+                fetchTasksForSelectedDate()
+            }, content: {
+                CalendarAddView()
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
+            }) //sheet
+        })
+        .padding(.horizontal)
+        .padding(.top, 10)
+        .background(.ultraThinMaterial)
+    }
+    
+    
+    
+    /* -------  function ------- */
+    
     
     /* MARK: month 변경 시 다시 조회되도록 */
     func updateCurrentMonth() {

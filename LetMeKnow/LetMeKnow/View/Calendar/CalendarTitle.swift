@@ -20,6 +20,7 @@ struct CalendarTitle: View {
             
             Text("\(extraDate()[1])월")
                 .font(.title.bold())
+            
         })//VStack
     }
     
