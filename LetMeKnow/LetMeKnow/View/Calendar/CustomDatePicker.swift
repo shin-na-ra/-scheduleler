@@ -28,6 +28,8 @@ struct CustomDatePicker: View {
     @State var date: Date = Date()              // 선택된 날짜 변수
     @State var time: Date = Date()              // 선택된 시간 변수
     @State var task: String = ""
+    @State var status: Int = 0
+    @State var checked: Bool = false
     
     
     var body: some View {
@@ -126,10 +128,10 @@ struct CustomDatePicker: View {
                             .padding(.vertical, 10)
                             .padding(.horizontal)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(task.status == 0 ? Color.black : Color.gray)
                             .background(
-                                Color("color2")
-                                    .opacity(0.3)
+                                Color("color1")
+                                    .opacity(0.1)
                                     .cornerRadius(10)
                             )
                             .onTapGesture {
@@ -204,14 +206,25 @@ struct CustomDatePicker: View {
                         .environment(\.locale, Locale(identifier: "ko_KR")) // 한국어로 설정
                         .tint(Color("color1"))
                     
-//                    HStack(content: {
-//                        Text("완료")
-//                    })
+                        HStack(content: {
+                            Text("완료")
+                            Image(systemName: checked ? "checkmark.square.fill" : "square")
+                                .foregroundColor(checked ? Color(UIColor.systemBlue) : Color.secondary)
+                                .onTapGesture {
+                                    self.checked.toggle()
+                                    checked ? status = 1 : (status = 0)
+                                    print("checked : ", checked)
+                                    print("status : ", status)
+                                    
+                                }
+                        })//HStack
+                        .padding(.top, 10)
+                        .padding(.trailing, 140)
                         
                         //추가 버튼
                         Button("추가하기", action: {
                             if task != "" {
-                                let newTask = Task(id: UUID().uuidString, title: task, time: time, status: 0)
+                                let newTask = Task(id: UUID().uuidString, title: task, time: time, status: status)
                                 dbModel.insertDB(task: newTask, taskDate: date)
                                 isAlert = false //alert창 닫기
                             } else {
