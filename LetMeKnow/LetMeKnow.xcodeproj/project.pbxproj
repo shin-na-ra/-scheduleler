@@ -17,6 +17,8 @@
 		5409E65D2C23D87B001B8F7F /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E65C2C23D87B001B8F7F /* DateModel.swift */; };
 		5409E65F2C23ED0E001B8F7F /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E65E2C23ED0E001B8F7F /* CalendarDetailView.swift */; };
 		5409E6722C242625001B8F7F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6712C242625001B8F7F /* Notification.swift */; };
+		5409E6752C2442DD001B8F7F /* CalendarAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6742C2442DD001B8F7F /* CalendarAddView.swift */; };
+		5409E6772C2446C5001B8F7F /* CalendarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6762C2446C5001B8F7F /* CalendarTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		5409E65E2C23ED0E001B8F7F /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		5409E6712C242625001B8F7F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		5409E6732C2426C5001B8F7F /* LetMeKnow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetMeKnow.entitlements; sourceTree = "<group>"; };
+		5409E6742C2442DD001B8F7F /* CalendarAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAddView.swift; sourceTree = "<group>"; };
+		5409E6762C2446C5001B8F7F /* CalendarTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 			children = (
 				5409E65A2C23D84B001B8F7F /* CustomDatePicker.swift */,
 				5409E65E2C23ED0E001B8F7F /* CalendarDetailView.swift */,
+				5409E6742C2442DD001B8F7F /* CalendarAddView.swift */,
+				5409E6762C2446C5001B8F7F /* CalendarTitle.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -211,10 +217,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5409E6772C2446C5001B8F7F /* CalendarTitle.swift in Sources */,
 				5409E65F2C23ED0E001B8F7F /* CalendarDetailView.swift in Sources */,
 				5409E65B2C23D84B001B8F7F /* CustomDatePicker.swift in Sources */,
 				5409E6462C23CD1B001B8F7F /* ContentView.swift in Sources */,
 				5409E6552C23D54A001B8F7F /* Task.swift in Sources */,
+				5409E6752C2442DD001B8F7F /* CalendarAddView.swift in Sources */,
 				5409E6722C242625001B8F7F /* Notification.swift in Sources */,
 				5409E6442C23CD1B001B8F7F /* LetMeKnowApp.swift in Sources */,
 				5409E6572C23D5D8001B8F7F /* CalendarDB.swift in Sources */,
