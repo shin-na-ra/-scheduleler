@@ -13,6 +13,8 @@
 		5409E64B2C23CD1C001B8F7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5409E64A2C23CD1C001B8F7F /* Preview Assets.xcassets */; };
 		5409E6552C23D54A001B8F7F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6542C23D54A001B8F7F /* Task.swift */; };
 		5409E6572C23D5D8001B8F7F /* CalendarDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E6562C23D5D8001B8F7F /* CalendarDB.swift */; };
+		5409E65B2C23D84B001B8F7F /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E65A2C23D84B001B8F7F /* CustomDatePicker.swift */; };
+		5409E65D2C23D87B001B8F7F /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5409E65C2C23D87B001B8F7F /* DateModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		5409E64A2C23CD1C001B8F7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5409E6542C23D54A001B8F7F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5409E6562C23D5D8001B8F7F /* CalendarDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDB.swift; sourceTree = "<group>"; };
+		5409E65A2C23D84B001B8F7F /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		5409E65C2C23D87B001B8F7F /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5409E6542C23D54A001B8F7F /* Task.swift */,
+				5409E65C2C23D87B001B8F7F /* DateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		5409E6592C23D799001B8F7F /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				5409E65A2C23D84B001B8F7F /* CustomDatePicker.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -183,10 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5409E65B2C23D84B001B8F7F /* CustomDatePicker.swift in Sources */,
 				5409E6462C23CD1B001B8F7F /* ContentView.swift in Sources */,
 				5409E6552C23D54A001B8F7F /* Task.swift in Sources */,
 				5409E6442C23CD1B001B8F7F /* LetMeKnowApp.swift in Sources */,
 				5409E6572C23D5D8001B8F7F /* CalendarDB.swift in Sources */,
+				5409E65D2C23D87B001B8F7F /* DateModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

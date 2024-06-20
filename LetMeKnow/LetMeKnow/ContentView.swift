@@ -23,16 +23,20 @@ struct ContentView: View {
     
     var body: some View {
         
-        ScrollView(.vertical, showsIndicators: false) { // showsIndicators : false => 스크롤바 안보이게
-            
-            VStack(spacing: 20, content: {
+        NavigationView {
+            ScrollView(.vertical, showsIndicators: false) { // showsIndicators : false => 스크롤바 안보이게
                 
-                //Custom Picker View
-                //CustomDatePicker(currentDate: $currentDate, dateValue: $currentDate)
-                
-            })//VStack
-            .padding(.vertical)
-        }//ScrollView
+                VStack(spacing: 20, content: {
+                    
+                    //Custom Picker View
+                    CustomDatePicker(currentDate: $currentDate, dateValue: $currentDate)
+                    
+                })//VStack
+                .padding(.vertical)
+            }//ScrollView
+            .navigationTitle("알려주게")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }//body
     
     
