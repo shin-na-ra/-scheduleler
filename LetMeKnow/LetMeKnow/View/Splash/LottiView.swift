@@ -12,29 +12,27 @@ import UIKit
 
 struct LottieView: UIViewRepresentable {
     
-    var name: String
-    var loopMode: LottieLoopMode
+    typealias UIViewType = UIView
     
-    init(jsonName: String = "", loopMode: LottieLoopMode = .loop) {
-        self.name = jsonName
-        self.loopMode = loopMode
-    }
+    var filename: String
+    
     
     func makeUIView(context: Context) -> UIView {
         let view = UIView(frame: .zero)
         
         let animationView = LottieAnimationView()
-        let animation = LottieAnimation.named(name)
-        animationView.animation = animation
-        
+        animationView.animation = LottieAnimation.named(filename)
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = loopMode
+        animationView.loopMode = .loop
         animationView.play()
-        animationView.backgroundBehavior = .pauseAndRestore
+        
+        
+//        animationView.backgroundBehavior = .pauseAndRestore
         
         animationView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(animationView)
+        
+        
         NSLayoutConstraint.activate([
             animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
             animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
@@ -46,4 +44,6 @@ struct LottieView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {
             // Update the view if necessary
         }
+    
+    
 }
